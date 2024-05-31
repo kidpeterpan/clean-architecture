@@ -1,6 +1,34 @@
 # Clean Architecture in Go
 
+![ca.png](ca.png)
+
 This repository provides an example implementation of Clean Architecture in Go. The Clean Architecture, popularized by Robert C. Martin (Uncle Bob), emphasizes separation of concerns, allowing for highly maintainable and testable code. This architecture enforces a structure that isolates different parts of the application, such as the domain, use cases, and external systems.
+
+```azure
+clean-arch/
+├── cmd/
+│   └── app/
+│       └── main.go          // Entry point 
+├── internal/
+│   ├── app/
+│   │   ├── http/
+│   │   │   └── handler.go    // HTTP handlers
+│   │   ├── usecase/
+│   │   │   └── room.go       // Use case 
+│   │   └── repository/
+│   │       └── room.go       // In-memory room repository
+│   ├── domain/
+│   │   └── room.go           // Room entity
+├── pkg/
+│   └── config/
+│       └── config.go         // Configuration management
+├── api/
+│   └── v1/
+│       └── room.go           // API endpoints 
+├── go.mod                    
+└── go.sum                   
+
+```
 
 ## Key Features
 - **Separation of Concerns:** Clearly separates different aspects of the application, such as business logic, data access, and presentation.
