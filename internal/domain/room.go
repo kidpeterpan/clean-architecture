@@ -1,9 +1,9 @@
 package domain
 
 type Room struct {
-	Code      string  `json:"code"`
-	Size      int     `json:"size"`
-	Price     int     `json:"price"`
-	Longitude float64 `json:"longitude"`
-	Latitude  float64 `json:"latitude"`
+	Code      string  `bson:"code"`
+	Size      int     `bson:"size"`
+	Price     int     `bson:"price"`
+	Longitude float64 `bson:"longitude"`
+	Latitude  float64 `bson:"latitude"`
 }

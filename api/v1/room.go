@@ -21,5 +21,5 @@ func (h *Handler) GetAvailableRooms(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, rooms)
+	c.JSON(http.StatusOK, ToGetAvailableRoomsResponse(rooms))
 }
