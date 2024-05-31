@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-
-	"clean-arch/internal/app/handler"
+	v1 "clean-arch/api/v1"
 	"clean-arch/internal/app/repository"
 	"clean-arch/internal/app/usecase"
 	"clean-arch/internal/domain"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -17,10 +16,9 @@ func main() {
 
 	repo := &repository.InMemoryRoomRepository{Rooms: rooms}
 	useCase := &usecase.RoomUseCase{Repo: repo}
-	h := &handler.Handler{UseCase: useCase}
+	handler := &v1.Handler{UseCase: useCase}
 
-	http.Handle("/rooms", h)
-
-	fmt.Println("Server started at :8080")
-	http.ListenAndServe(":8080", nil)
+	r := gin.Default()
+	r.GET("/rooms", handler.GetAvailableRooms)
+	r.Run(":8080")
 }
