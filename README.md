@@ -8,23 +8,23 @@ This repository provides an example implementation of Clean Architecture in Go. 
 clean-arch/
 ├── cmd/
 │   └── app/
-│       └── main.go          // Entry point 
+│       └── main.go          
 ├── internal/
 │   ├── app/
-│   │   ├── http/
-│   │   │   └── handler.go    // HTTP handlers
+│   │   ├── client/
+│   │   │   └── client.go    // HTTP client
 │   │   ├── usecase/
 │   │   │   └── room.go       // Use case 
 │   │   └── repository/
-│   │       └── room.go       // In-memory room repository
+│   │       └── room.go       // Repository
 │   ├── domain/
-│   │   └── room.go           // Room entity
+│   │   └── room.go           // Entity
 ├── pkg/
 │   └── config/
 │       └── config.go         // Configuration management
 ├── api/
 │   └── v1/
-│       └── room.go           // API endpoints 
+│       └── room.go           // API
 ├── go.mod                    
 └── go.sum                   
 
