@@ -9,6 +9,10 @@ type RoomUseCase struct {
 	Repo repository.RoomRepository
 }
 
-func (uc *RoomUseCase) GetAvailableRooms() ([]domain.Room, error) {
-	return uc.Repo.FindRoomsByStatus("available")
+func (uc *RoomUseCase) GetAvailableRooms(status string) ([]domain.Room, error) {
+	rooms, err := uc.Repo.FindRoomsByStatus(status)
+	if err != nil {
+		return nil, err
+	}
+	return rooms, nil
 }

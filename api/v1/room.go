@@ -13,10 +13,13 @@ type Handler struct {
 }
 
 func (h *Handler) GetAvailableRooms(c *gin.Context) {
-	rooms, err := h.UseCase.GetAvailableRooms()
+	status := c.Query("status")
+
+	rooms, err := h.UseCase.GetAvailableRooms(status)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
 	c.JSON(http.StatusOK, rooms)
 }

@@ -1,6 +1,10 @@
 package repository
 
-import "clean-arch/internal/domain"
+import (
+	"fmt"
+
+	"clean-arch/internal/domain"
+)
 
 type RoomRepository interface {
 	FindRoomsByStatus(status string) ([]domain.Room, error)
@@ -11,5 +15,8 @@ type InMemoryRoomRepository struct {
 }
 
 func (repo *InMemoryRoomRepository) FindRoomsByStatus(status string) ([]domain.Room, error) {
+	if status != "available" {
+		return nil, fmt.Errorf("invalid status")
+	}
 	return repo.Rooms, nil
 }
