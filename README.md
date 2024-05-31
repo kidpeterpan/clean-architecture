@@ -37,3 +37,12 @@ clean-arch/
 
 ## Contributing
 Contributions are welcome! Feel free to submit a pull request or open an issue to discuss improvements, bug fixes, or new features.
+
+## Running the Application
+
+To run the application, follow these steps:
+
+```shell
+docker-compose -f docker-compose.yml up -d
+go run cmd/app/main.go
+```
